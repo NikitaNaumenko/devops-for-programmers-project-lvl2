@@ -1,0 +1,25 @@
+---
+
+- hosts: webservers
+  pre_tasks:
+    - name: Update cache
+      ansible.builtin.apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400
+  remote_user: root
+  vars:
+    - pip_install_packages:
+      - name: docker
+  roles:
+    - geerlingguy.pip
+  tasks:
+    - name: Start Redmine container
+      community.docker.docker_container:
+        name: redmine
+        auto_remove: yes
+        pull: yes
+        image: redmine:latest
+        ports:
+          - "3000:3000"
+
