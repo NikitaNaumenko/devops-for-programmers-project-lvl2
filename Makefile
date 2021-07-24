@@ -6,3 +6,5 @@ deploy-monitoring:
 	ansible-playbook -i inventory.ini --vault-password-file vault monitoring.yml
 encrypt:
 	ansible-vault encrypt --vault-password-file vault group_vars/vault.yml
+decrypt:
+	ansible-vault decrypt --vault-password-file vault group_vars/vault.yml
