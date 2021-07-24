@@ -1,0 +1,10 @@
+---
+
+- hosts: webservers
+  remote_user: root
+  vars_files:
+      - group_vars/datadog.yml
+  vars:
+    datadog_api_key: '{{ datadog_api_key }}'
+  roles:
+      - { role: datadog.datadog, become: yes }
