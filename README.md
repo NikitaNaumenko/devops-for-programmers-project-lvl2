@@ -4,10 +4,17 @@
 # Devops for programmers project 2
 [Project](https://naumenkoniki.club)
 
+![Project](https://naumenkoniki.club)
+
 Prerequisites:
-* ansible > 4.0
+* ansible > 2.11
 * vault_file
 
+generate empty vault file:
+
+```bash
+make generate-vault
+```
 setup requirements:
 
 ```bash

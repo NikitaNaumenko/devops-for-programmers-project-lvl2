@@ -8,9 +8,6 @@
         update_cache: yes
         cache_valid_time: 86400
   remote_user: root
-  vars:
-    - pip_install_packages:
-      - name: docker
   roles:
     - geerlingguy.pip
   tasks:
