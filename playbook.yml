@@ -9,6 +9,7 @@
         cache_valid_time: 86400
   roles:
     - geerlingguy.pip
+    - { role: datadog.datadog, no_log: True, tags: [monitoring] }
   tasks:
     - name: Start Redmine container
       no_log: True
@@ -18,10 +19,12 @@
         pull: yes
         image: redmine:4.2.2
         ports:
-          - "3000:3000"
+          - "{{ app_port }}:{{ app_port }}"
         env:
           REDMINE_DB_POSTGRES: '{{ db_host }}'
           REDMINE_DB_PORT: '{{ db_port }}'
           REDMINE_DB_DATABASE: '{{ db_name }}'
           REDMINE_DB_USERNAME: '{{ db_username }}'
           REDMINE_DB_PASSWORD: '{{ db_password }}'
+      tags:
+        - app

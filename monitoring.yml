@@ -1,6 +1,0 @@
----
-
-- hosts: webservers
-  no_log: True
-  roles:
-      - { role: datadog.datadog, become: yes }

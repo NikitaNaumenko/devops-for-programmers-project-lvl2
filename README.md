@@ -8,14 +8,15 @@
 
 Prerequisites:
 * ansible > 2.11
-* vault_file
+* password file for vault
 
-generate empty vault file:
+generate empty password file for vault:
 
 ```bash
 make generate-vault
 ```
-setup requirements:
+
+setup invokes generate-vault and install requirements, you have to put password inside vault file:
 
 ```bash
 make setup
